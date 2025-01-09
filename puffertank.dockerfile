@@ -10,7 +10,7 @@ ENV READTHEDOCS=True
 RUN git clone https://github.com/pufferai/carbs && pip3 install --user -e carbs/
 COPY .env .env
 ARG GTOK
-
+RUN apt install -y ffmpeg
 ADD https://api.github.com/repos/pufferai/pufferlib/git/refs/heads/2.0 version.json
 RUN git clone https://github.com/pufferai/pufferlib --branch 2.0 && SETUPTOOLS_ENABLE_FEATURES="legacy-editable" pip3 install --user -e pufferlib/[common]
 
