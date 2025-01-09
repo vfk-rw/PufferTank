@@ -8,6 +8,8 @@ ENV READTHEDOCS=True
 
 # CARBS hyperparam sweeps
 RUN git clone https://github.com/pufferai/carbs && pip3 install --user -e carbs/
+COPY .env .env
+ARG GTOK
 
 ADD https://api.github.com/repos/pufferai/pufferlib/git/refs/heads/2.0 version.json
 RUN git clone https://github.com/pufferai/pufferlib --branch 2.0 && SETUPTOOLS_ENABLE_FEATURES="legacy-editable" pip3 install --user -e pufferlib/[common]
@@ -23,8 +25,7 @@ RUN chmod +x /root/entrypoint.sh
 COPY init.vim /root/.config/nvim/init.vim
 
 # For the memes. Properly escaped pufferfish prompt
-RUN echo "export PS1=$' \xf0\x9f\[\x90\xa1\] '" >> ~/.bashrc \
- && echo "alias vim='/usr/bin/nvim'" >> ~/.bashrc \ 
+RUN echo "alias vim='/usr/bin/nvim'" >> ~/.bashrc \ 
  && echo "alias diff='diff --color --palette=':ad=36:de=31:ln=33''" >> ~/.bashrc
 
 ENTRYPOINT ["/root/entrypoint.sh"]

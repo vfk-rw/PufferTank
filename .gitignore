@@ -1,0 +1,6 @@
+.env
+*.tgz
+airsim/cy_airsim.cpython-311-x86_64-linux-gnu.so
+airsim/build/lib.linux-x86_64-cpython-311/cy_airsim.cpython-311-x86_64-linux-gnu.so
+airsim/build/temp.linux-x86_64-cpython-311/cy_airsim.o
+airsim/out

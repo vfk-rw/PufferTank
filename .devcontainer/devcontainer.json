@@ -10,14 +10,26 @@
 	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 	"dockerFile": "../puffertank.dockerfile",
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {},
-	
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-python.python",
-        "ms-python.vscode-pylance"
-	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+					"workbench.editor.enablePreview": false,
+					"workbench.editor.enablePreviewFromQuickOpen": false
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"ms-azuretools.vscode-docker",
+				"ktnrg45.vscode-cython",
+				"charliermarsh.ruff",
+				"ms-python.black-formatter",
+				"ms-vscode.cpptools-extension-pack"
+			]
+		}
+	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
